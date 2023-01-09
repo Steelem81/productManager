@@ -1,11 +1,18 @@
 import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
-import ProductForm from './components/ProductForm';
+import Main from './views/Main';
+import ProductDetail from './components/ProductDetail'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <ProductForm/>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Main/>} path="/products/" default/>
+          <Route element={<ProductDetail/>} path="/products/:id" />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
